@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Dice Game</title>
+</head>
+
+<body>
+  <div id="game-container" class="d-flex h-100 w-100">
+    <div class="col text-center player-container bg-light" id="player1Container">
+      <div id="player1" class="position-fixed  ">
+        <div>PLAYER 1</div>
+        <span id="roundScore1" class="text-danger">0</span>
+      </div>
+      <div class="global1 py-3 p-5 fw-bold position-fixed ">CURRENT <br> <span id="globalScore1"
+          class="fs-1 text-white">0</span></div>
+    </div>
+
+    <div class="col text-center player-container bg-light" id="player2Container">
+      <div id="player2" class="position-fixed ">
+        <div>PLAYER 2</div>
+        <span id="roundScore2" class="text-danger">0</span>
+      </div>
+      <div class="global2 py-3 p-5 fw-bold position-fixed ">CURRENT <br> <span id="globalScore2"
+          class="fs-1 text-white">0</span></div>
+    </div>
+
+    <button id="newgame" class="btn mt-5 fs-2 d-flex justify-content-center align-items-center position-fixed "
+      onclick="newGame()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+        class="bi bi-plus-circle text-danger" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path
+          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+      </svg>
+      <div class="px-3 fw-bold"> NEW GAME </div>
+    </button>
+
+    <div id="btn-container" class="flex-column d-flex fixed-top">
+      <button class="btn fs-3 d-flex justify-content-center align-items-center" onclick="rollDice()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+          class="bi bi-arrow-repeat text-danger" viewBox="0 0 16 16">
+          <path
+            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+          <path fill-rule="evenodd"
+            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+        </svg>
+        <div class="px-3 fw-bold"> ROLL DICE</div>
+      </button>
+      <br>
+      <button class="btn fs-3 d-flex justify-content-center " onclick="hold()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+          class="bi bi-box-arrow-in-down text-danger" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z" />
+          <path fill-rule="evenodd"
+            d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+        </svg>
+        <div class="px-3 fw-bold"> HOLD</div>
+      </button>
+    </div>
+
+    <div id="diceResult" class="align-items-center justify-content-center bg-white d-flex fixed-top">
+      <p class="dot position-absolute rounded-circle dot-top-left"></p>
+      <p class="dot position-absolute rounded-circle dot-bottom-right"></p>
+      <p class="dot position-absolute rounded-circle dot-center"></p>
+      <p class="dot position-absolute rounded-circle dot-top-right"></p>
+      <p class="dot position-absolute rounded-circle dot-bottom-left"></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

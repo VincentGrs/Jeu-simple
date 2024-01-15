@@ -1,0 +1,112 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+#player1,
+#player2 {
+    font-size: 60px;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+#player1 {
+    left: 25%;
+}
+
+#player2 {
+    left: 75%;
+}
+
+#roundScore1,
+#roundScore2 {
+    font-size: 100px;
+}
+
+.global1,
+.global2 {
+    background-color: rgb(250, 60, 60);
+    top: 75%;
+    transform: translate(-50%, -50%);
+}
+
+.global1 {
+    left: 25%;
+}
+
+.global2 {
+    left: 75%;
+}
+
+#btn-container {
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+}
+
+#newgame {
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#diceResult {
+    width: 120px;
+    height: 120px;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 1px 1px rgb(240, 240, 240);
+}
+
+#diceResult p {
+    margin: 0;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    background-color: red;
+
+}
+
+.dot-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dot-top-left {
+    top: 15%;
+    left: 15%;
+}
+
+.dot-top-right {
+    top: 15%;
+    right: 15%;
+}
+
+.dot-middle-left {
+    top: 50%;
+    left: 15%;
+    transform: translate(0, -50%);
+}
+
+.dot-middle-right {
+    top: 50%;
+    right: 15%;
+    transform: translate(0, -50%);
+}
+
+.dot-bottom-left {
+    bottom: 15%;
+    left: 15%;
+}
+
+.dot-bottom-right {
+    bottom: 15%;
+    right: 15%;
+}
